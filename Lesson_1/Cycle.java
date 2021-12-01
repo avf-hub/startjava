@@ -18,13 +18,13 @@ public class Cycle {
             Сумма нечетных = 75
         */
         int k = 10;
-        int sumUneven = 0;
+        int odd = 0;
         do {
             if (k % 2 != 0) {
-                sumUneven += k;
+                odd += k;
             }
             k++;
         } while(k <= 20);
-        System.out.println("Сумма нечетных чисел: " + sumUneven);
+        System.out.println("Сумма нечетных чисел: " + odd);
     }
 }
