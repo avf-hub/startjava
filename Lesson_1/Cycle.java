@@ -14,8 +14,7 @@ public class Cycle {
 
         System.out.println("\n----- Цикл do while -----");
         /*
-        Должна получиться сумма:
-            Сумма нечетных = 75
+        Должна получиться cумма нечетных = 75
         */
         int k = 10;
         int sumOdd = 0;
