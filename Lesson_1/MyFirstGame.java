@@ -1,21 +1,19 @@
 public class MyFirstGame {
     public static void main(String[] args) {
         // Число введенное пользователем
-        int numberUser = 96;
+        int playerNumber = 96;
         // Число сгенерированное компьютером
-        int numberComputer = 14;
+        int secretNumber = 14;
 
         do {
-            if (numberUser > numberComputer) {
+            if (playerNumber > secretNumber) {
                 System.out.println("Данное число больше того, что загадал компьютер");
-                numberUser--;
-            } else if (numberUser < numberComputer) {
+                playerNumber--;
+            } else if (playerNumber < secretNumber) {
                 System.out.println("Данное число меньше того, что загадал компьютер");
-                numberUser++;
-            } else {
-                System.out.println("Поздравляю, число угадано!");
-                break;
+                playerNumber++;
             }
-        } while(true);
+        } while(playerNumber == secretNumber);
+        System.out.println("Поздравляю, число угадано!");
     }
 }
