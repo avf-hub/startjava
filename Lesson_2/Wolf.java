@@ -49,7 +49,6 @@ public class Wolf {
         this.color = color;
     }
 
-
     public void go() {
         System.out.println("Волк " + name + " идет.");
     }
