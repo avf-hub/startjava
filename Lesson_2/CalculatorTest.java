@@ -20,13 +20,13 @@ public class CalculatorTest {
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
                 answer = scanner.next();
-                if(answer.equals("yes") || answer.equals("no")) {
+                if("yes".equals(answer) || "no".equals(answer)) {
                     break;
                 } else {
                     System.out.println("Вы ввели недопустимый ответ!");
                 }
             } while(true);
-        } while (answer.equals("yes"));
+        } while ("yes".equals(answer));
         System.out.println("Программа завершена!");
     }
 }
