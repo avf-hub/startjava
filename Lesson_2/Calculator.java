@@ -1,7 +1,6 @@
 public class Calculator {
     private int number1;
     private int number2;
-    private int result;
     private char sign;
 
     public void setNumber1(int number1) {
@@ -27,7 +26,7 @@ public class Calculator {
             case '/' :
                 return number1 / number2;
             case '^' :
-                result = 1;
+                int result = 1;
                 for(int i = 0; i < number2; i++) {
                     result *= number1;
                 }
@@ -35,7 +34,7 @@ public class Calculator {
             case '%' :
                 return number1 % number2;
             default :
-                return result;
+                return 0;
         }
     }
 }
