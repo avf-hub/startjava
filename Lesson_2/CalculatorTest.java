@@ -27,6 +27,6 @@ public class CalculatorTest {
                 }
             } while(true);
         } while (question.equals("yes"));
-    System.out.println("Программа завершена!");
-}
+        System.out.println("Программа завершена!");
+    }
 }
