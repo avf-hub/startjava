@@ -28,5 +28,6 @@ public class CalculatorTest {
             } while(true);
         } while ("yes".equals(answer));
         System.out.println("Программа завершена!");
+        scanner.close();
     }
 }
