@@ -1,14 +1,28 @@
 public class GuessNumber {
-    private Player player;
+    private Player firstPlayer;
+    private Player secondPlayer;
+    private int secretNumber;
 
-    public GuessNumber(Player player) {
-        this.player = player;
+    public GuessNumber(Player firstPlayer, Player secondPlayer, int secretNumber) {
+        this.firstPlayer = firstPlayer;
+        this.secondPlayer = secondPlayer;
+        this.secretNumber = secretNumber;
     }
 
-    public char play(int secretNumber) {
-        if(player.getNumber() > secretNumber) {
+    public char playFirstPlayer() {
+        if(firstPlayer.getNumber() > secretNumber) {
             return '>';
-        } else if(player.getNumber() < secretNumber) {
+        } else if(firstPlayer.getNumber() < secretNumber) {
+            return '<';
+        } else {
+            return '=';
+        }
+    }
+
+    public char playSecondPlayer() {
+        if(secondPlayer.getNumber() > secretNumber) {
+            return '>';
+        } else if(secondPlayer.getNumber() < secretNumber) {
             return '<';
         } else {
             return '=';

@@ -16,17 +16,24 @@ public class GuessNumberTest {
         Player secondPlayer = new Player(scanner.nextLine());
 
         do {
-            // Play first player
+            // First player
             System.out.print("Участник " + firstPlayer.getName() + ", введите число от 0 до 100 : ");
             int numberFirstPlayer = scanner.nextInt();
             firstPlayer.setNumber(numberFirstPlayer);
-            GuessNumber firstGame = new GuessNumber(firstPlayer);
-            switch(firstGame.play(secretNumber)) {
+
+            // Second player
+            System.out.print("Участник " + secondPlayer.getName() + ", введите число от 0 до 100 : ");
+            int numberSecondPlayer = scanner.nextInt();
+            secondPlayer.setNumber(numberSecondPlayer);
+
+            // Play game
+            GuessNumber game = new GuessNumber(firstPlayer, secondPlayer, secretNumber);
+            switch(game.playFirstPlayer()) {
                 case '>' :
-                    System.out.println("Данное число больше того, что загадал компьютер");
+                    System.out.println("Участник " + firstPlayer.getName() + " ввел число больше того, что загадал компьютер");
                     break;
                 case '<' :
-                    System.out.println("Данное число меньше того, что загадал компьютер");
+                    System.out.println("Участник " + firstPlayer.getName() + " ввел число меньше того, что загадал компьютер");
                     break;
                 case '=' :
                     System.out.println("Поздравляем, Участник " + firstPlayer.getName() + " угадал число!");
@@ -35,17 +42,12 @@ public class GuessNumberTest {
                     System.out.println("Вы ввели недопустимые данные!");
             }
 
-            // Play second player
-            System.out.print("Участник " + secondPlayer.getName() + ", введите число от 0 до 100 : ");
-            int numberSecondPlayer = scanner.nextInt();
-            secondPlayer.setNumber(numberSecondPlayer);
-            GuessNumber secondGame = new GuessNumber(secondPlayer);
-            switch(secondGame.play(secretNumber)) {
+            switch(game.playSecondPlayer()) {
                 case '>' :
-                    System.out.println("Данное число больше того, что загадал компьютер");
+                    System.out.println("Участник " + secondPlayer.getName() + " ввел число больше того, что загадал компьютер");
                     break;
                 case '<' :
-                    System.out.println("Данное число меньше того, что загадал компьютер");
+                    System.out.println("Участник " + secondPlayer.getName() + " ввел число меньше того, что загадал компьютер");
                     break;
                 case '=' :
                     System.out.println("Поздравляем, Участник " + secondPlayer.getName() + " угадал число!");
