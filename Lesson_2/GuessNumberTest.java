@@ -4,8 +4,11 @@ public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String answer = "";
-        Player firstPlayer = new Player();
-        Player secondPlayer = new Player();
+
+        System.out.print("Первый Участник, введите свое имя: ");
+        Player firstPlayer = new Player(scanner.nextLine());
+        System.out.print("Второй Участник, введите свое имя: ");
+        Player secondPlayer = new Player(scanner.nextLine());
         GuessNumber game = new GuessNumber(firstPlayer, secondPlayer);
 
         do {
