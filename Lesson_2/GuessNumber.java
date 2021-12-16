@@ -15,15 +15,16 @@ public class GuessNumber {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         secretNumber = random.nextInt(100 + 1);
-        boolean win = false;
-        while(!win) {
+        while(true) {
             System.out.print("Участник " + firstPlayer.getName() + ", введите число от 0 до 100 : ");
             firstPlayer.setNumber(scanner.nextInt());
-            win = checkNumber(firstPlayer);
-            if(!win) {
-                System.out.print("Участник " + secondPlayer.getName() + ", введите число от 0 до 100 : ");
-                secondPlayer.setNumber(scanner.nextInt());
-                win = checkNumber(secondPlayer);
+            if(checkNumber(firstPlayer)) {
+                break;
+            }
+            System.out.print("Участник " + secondPlayer.getName() + ", введите число от 0 до 100 : ");
+            secondPlayer.setNumber(scanner.nextInt());
+            if (checkNumber(secondPlayer)) {
+                break;
             }
         }
     }
