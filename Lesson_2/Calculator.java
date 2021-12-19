@@ -1,7 +1,8 @@
 public class Calculator {
+    
     private int number1;
     private int number2;
-    private char sign;
+    private char mathOperation;
 
     public void setNumber1(int number1) {
         this.number1 = number1;
@@ -11,30 +12,40 @@ public class Calculator {
         this.number2 = number2;
     }
 
-    public void setSign(char sign) {
-        this.sign = sign;
+    public void setMathOperation(char mathOperation) {
+        this.mathOperation = mathOperation;
     }
 
-    public int calculate() {
-        switch(sign) {
-            case '+' :
-                return number1 + number2;
-            case '-' :
-                return number1 - number2;
-            case '*' :
-                return number1 * number2;
-            case '/' :
-                return number1 / number2;
-            case '^' :
-                int result = 1;
-                for(int i = 0; i < number2; i++) {
-                    result *= number1;
-                }
-                return result;
-            case '%' :
-                return number1 % number2;
-            default :
-                return 0;
+    public void calculate() {
+        switch(mathOperation) {
+            case '+':
+                System.out.println("Результат вычисления: " + (number1 + number2));
+                break;
+            case '-':
+                System.out.println("Результат вычисления: " + (number1 - number2));
+                break;
+            case '*':
+                System.out.println("Результат вычисления: " + (number1 * number2));
+                break;
+            case '/':
+                System.out.println("Результат вычисления: " + (number1 / number2));
+                break;
+            case '^':
+                pow();
+                break;
+            case '%':
+                System.out.println("Результат вычисления: " + (number1 % number2));
+                break;
+            default:
+                System.out.println("Ошибка!");
         }
+    }
+
+    private void pow() {
+        int result = 1;
+        for(int i = 0; i < number2; i++) {
+            result *= number1;
+        }
+        System.out.println("Результат вычисления: " + result);
     }
 }
