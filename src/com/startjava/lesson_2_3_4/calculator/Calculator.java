@@ -6,19 +6,11 @@ public class Calculator {
     private static int number2;
     private static char mathOperation;
 
-    public static void setNumber1(int number1) {
-        Calculator.number1 = number1;
-    }
-
-    public static void setNumber2(int number2) {
-        Calculator.number2 = number2;
-    }
-
-    public static void setMathOperation(char mathOperation) {
-        Calculator.mathOperation = mathOperation;
-    }
-
-    public static int calculate() {
+    public static int calculate(String mathExpression) {
+        String[] mathOperations = mathExpression.split(" ");
+        number1 = Integer.parseInt(mathOperations[0]);
+        number2 = Integer.parseInt(mathOperations[2]);
+        mathOperation = mathOperations[1].charAt(0);
         switch(mathOperation) {
             case '+':
                 return Math.addExact(number1, number2);
