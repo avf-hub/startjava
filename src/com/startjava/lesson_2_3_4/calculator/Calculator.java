@@ -7,10 +7,10 @@ public class Calculator {
     private static char mathOperation;
 
     public static int calculate(String mathExpression) {
-        String[] mathOperations = mathExpression.split(" ");
-        number1 = Integer.parseInt(mathOperations[0]);
-        number2 = Integer.parseInt(mathOperations[2]);
-        mathOperation = mathOperations[1].charAt(0);
+        String[] partsMathOperation = mathExpression.split(" ");
+        number1 = Integer.parseInt(partsMathOperation[0]);
+        number2 = Integer.parseInt(partsMathOperation[2]);
+        mathOperation = partsMathOperation[1].charAt(0);
         switch(mathOperation) {
             case '+':
                 return Math.addExact(number1, number2);
