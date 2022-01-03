@@ -11,12 +11,14 @@ public class GuessNumber {
         this.players = players;
     }
 
-    public void playGame() {
+    public void play() {
         Random random = new Random();
         secretNumber = random.nextInt(100 + 1);
+        System.out.println("\nИгра началась!!!");
+        System.out.println("У каждого участника по 10 попыток.");
         clearNumbers();
-        for (Player player : players) {
-            if (playPlayer(player)) {
+        for (int i = 0; i < 10; i++) {
+            if (startRound(i)) {
                 break;
             }
         }
@@ -29,13 +31,14 @@ public class GuessNumber {
         }
     }
 
-    private boolean playPlayer(Player player) {
+    private boolean startRound(int i) {
         Scanner scanner = new Scanner(System.in);
         int playerNumber = 0;
-        for (int i = 0; i < 10; i++) {
+        for (Player player : players) {
             System.out.print("Участник " + player.getName() + ", введите число от 0 до 100 : ");
             playerNumber = scanner.nextInt();
-            player.setNumbers(playerNumber, i);
+            player.setIndex(i);
+            player.setNumber(playerNumber);
             if (playerNumber > secretNumber) {
                 System.out.println("Данное число больше того, что загадал компьютер!");
             } else if (playerNumber < secretNumber) {
@@ -46,23 +49,16 @@ public class GuessNumber {
                 return true;
             }
         }
-        System.out.println("У участника " + player.getName() + " закончились попытки!");
         return false;
     }
 
     private void showNumbers() {
         for (Player player : players) {
-            if(player.getNumbers()[0] != 0) {
-                System.out.print("Введенные числа игроком " + player.getName() + ": { ");
-                for (int number : player.getNumbers()) {
-                    if (number != 0) {
-                        System.out.print(number + " ");
-                    }
-                }
-                System.out.println("}");
-            } else {
-                System.out.println("До участника " + player.getName() + " не дошла очередь!");
+            System.out.print("Введенные числа игроком " + player.getName() + ": { ");
+            for (int number : player.getNumbers()) {
+                System.out.print(number + " ");
             }
+                System.out.println("}");
         }
     }
 }

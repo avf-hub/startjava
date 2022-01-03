@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Player {
     private String name;
     private int[] numbers;
+    private int index;
 
     public Player(String name) {
         this.name = name;
@@ -16,16 +17,20 @@ public class Player {
     }
 
     public int[] getNumbers() {
-        return Arrays.copyOf(numbers, numbers.length);
+        return Arrays.copyOf(numbers, index + 1);
     }
 
-    public void setNumbers(int number, int index) {
-        if (number > 0 && number < 100) {
+    public void setNumber(int number) {
+        if (number > 0 && number <= 100) {
             numbers[index] = number;
         }
     }
 
     public void clearNumbers() {
-        Arrays.fill(numbers, 0);
+        Arrays.fill(numbers, 0, index + 1, 0);
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 }
