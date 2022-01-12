@@ -1,3 +1,5 @@
+-- create database
+
 CREATE DATABASE jaegers;
 
 CREATE TABLE jaegers (
