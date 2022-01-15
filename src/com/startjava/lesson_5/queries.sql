@@ -15,3 +15,12 @@ SELECT * FROM jaegers WHERE launch = (SELECT MIN(launch) FROM jaegers);
 
 -- вывести роботов, которые уничтожили больше/меньше всех kaiju
 SELECT * FROM jaegers WHERE kaijukill IN ((SELECT MIN(kaijukill) FROM jaegers), (SELECT MAX(kaijukill) FROM jaegers));
+
+-- вывести средний вес роботов
+SELECT AVG(weight) FROM jaegers;
+
+-- увеличьте на единицу количество уничтоженных kaiju у роботов, которые до сих пор не разрушены
+UPDATE jaegers SET kaijukill = kaijukill + 1 WHERE status = 'Active';
+
+-- удалите уничтоженных роботов
+DELETE FROM jaegers WHERE status = 'Destroyed';
